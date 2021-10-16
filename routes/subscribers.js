@@ -49,6 +49,7 @@ router.patch('/:id',getSubscriber, async(req,res)=>{
     catch(err){
         res.status(400).json({message: err.message});
     }
+  
 })
 
 //Deleting One
@@ -71,7 +72,7 @@ async function getSubscriber(req,res,next){
         }
     }
     catch(err){
-        res.status(500).json({message: err.message});
+       return res.status(500).json({message: err.message});
     }
     res.subscriber = subscriber;
     next();
